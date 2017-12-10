@@ -2,4 +2,4 @@
 @author: Shiqan
 '''
 
-from .vainglory import Player, Players, Matches
+from .vainglory import Player, Players, Match, Matches, Telemetry

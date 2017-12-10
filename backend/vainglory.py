@@ -19,8 +19,20 @@ class Players(Resource):
         return jsonify(players)
 
 
+class Match(Resource):
+
+    def get(self, match_id, region):
+        match = api.match(match_id, region)
+        return jsonify(match)
+
 class Matches(Resource):
 
     def get(self, name, region):
         matches = api.matches(region, player=[name])
         return jsonify(matches)
+
+class Telemetry(Resource):
+
+    def get(self, match_id, region):
+        telemetry = api.telemetry(match_id, region)
+        return jsonify(telemetry)

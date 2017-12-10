@@ -14,7 +14,9 @@ cors = CORS(app, resources={r"/api/*": {"origins": "*"}})
 
 api.add_resource(Player, '/api/v1/player/<string:region>/<string:player_id>')
 api.add_resource(Players, '/api/v1/players/<string:region>/<string:name>')
+api.add_resource(Match, '/api/v1/match/<string:region>/<string:match_id>')
 api.add_resource(Matches, '/api/v1/matches/<string:region>/<string:name>')
+api.add_resource(Telemetry, '/api/v1/telemetry/<string:region>/<string:match_id>')
 
 @app.route('/', defaults={'path': ''})
 @app.route('/<path:path>')

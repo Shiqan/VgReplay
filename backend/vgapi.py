@@ -22,6 +22,15 @@ class VaingloryApi(object):
     def query(self, endpoint, region, elid="", params=None):
         return self.request(endpoint + "/" + elid, region=region, params=params)
 
+    def telemetry(self, match_id, region):
+        print("Request telemetry on region {0} with match id: {1}".format(region, match_id))
+        match = self.match(match_id, region)
+        for i in match['included']:
+            if i['type'] == 'asset':
+                url = i['attributes']['URL']
+                response = requests.get(url)
+                return response.json()
+
     def match(self, match_id, region):
         return self.query("matches", region, elid=match_id)
 
